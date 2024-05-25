@@ -1,0 +1,24 @@
+{
+  "name": "vertex-ai-claude-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon --watch src --exec ts-node src/index.ts"
+  },
+  "author": "Orang Berbakat",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@anthropic-ai/vertex-sdk": "^0.3.7",
+    "@types/node": "^20.12.12",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.27.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
