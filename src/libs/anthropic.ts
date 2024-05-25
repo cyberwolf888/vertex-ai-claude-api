@@ -1,12 +1,8 @@
-import dotenv from 'dotenv';
+import {AnthropicVertex} from "@anthropic-ai/vertex-sdk";
 
-dotenv.config();
-
-//get the project id from the environment variable
-const projectId = process.env.PROJECT_ID;
-const region = process.env.REGION;
-
-export const claude = async () => {
-    console.log(`Project ID: ${projectId}`);
-    console.log(`Region: ${region}`);
+export const claude = (projectId: any, region: any) => {
+    return new AnthropicVertex({
+        projectId: projectId,
+        region: region,
+    });
 }

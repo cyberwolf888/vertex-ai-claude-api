@@ -12,9 +12,12 @@
   "description": "",
   "dependencies": {
     "@anthropic-ai/vertex-sdk": "^0.3.7",
+    "@fastify/auth": "^4.6.1",
+    "@fastify/multipart": "^8.2.0",
     "@types/node": "^20.12.12",
     "dotenv": "^16.4.5",
     "fastify": "^4.27.0",
+    "fastify-multipart": "^5.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   },

@@ -25,9 +25,21 @@ export const MESSAGE_RESPONSE = {
 
 export const createResponse = (data: any, status: number, message: string) => {
     return {
-        status: status,
+        statusCode: status,
         message: message,
         data: data
     }
+}
+
+
+export const MODEL_SONNET = {
+    region: 'asia-southeast1',
+    name: 'claude-3-sonnet@20240229',
+}
+
+export const MODEL_OPUS = {
+    region: 'us-east5',
+    name: 'claude-3-opus@20240229',
+
 }
 
