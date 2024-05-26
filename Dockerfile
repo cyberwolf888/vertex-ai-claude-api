@@ -10,13 +10,16 @@ COPY package*.json ./
 # Copy the rest of the code
 COPY . .
 
-# Create a .env file using the secret
-RUN echo "$ENV_FILE" > .env
+# Access the secret values
+ARG PROJECT_ID
+ARG SECRET_KEY
 
-RUN cat .env
+# Create a .env file
+RUN echo "PROJECT_ID=$PROJECT_ID" >> .env
+RUN echo "SECRET_KEY=$SECRET_KEY" >> .env
 
 # Create GCP credentials file
-RUN echo "$GCP_CREDENTIALS" > /usr/src/auth.json
+# RUN echo "$GCP_CREDENTIALS" > /usr/src/auth.json
 
 # Install production dependencies
 RUN npm install
