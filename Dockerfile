@@ -13,12 +13,12 @@ COPY . .
 # Access the secret values
 ARG PROJECT_ID
 ARG SECRET_KEY
-ARG GCP_CREDENTIALS
+#ARG GCP_CREDENTIALS
 
 # Create a .env file
 RUN echo "PROJECT_ID=\"$PROJECT_ID\"" >> /usr/src/app/.env
 RUN echo "SECRET_KEY=\"$SECRET_KEY\"" >> /usr/src/app/.env
-RUN echo "$GCP_CREDENTIALS" >> /usr/src/auth.json
+#RUN echo "$GCP_CREDENTIALS" >> /usr/src/auth.json
 
 
 # Create GCP credentials file
