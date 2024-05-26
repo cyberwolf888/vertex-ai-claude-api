@@ -19,7 +19,7 @@ const validateJwt = async (request: any, reply: any) => {
     }
 
     //validate the token
-    const secret = process.env.SCRET_KEY || '';
+    const secret = process.env.SECRET_KEY || '';
     return token === secret ? true : reply.send(createResponse([], CODE_RESPONSE.UNAUTHORIZED, MESSAGE_RESPONSE.UNAUTHORIZED));
 }
 

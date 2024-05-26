@@ -16,7 +16,7 @@ server.decorate('validateJWT', async function (request: any, reply: any) {
 
 
 server.get('/', async (request, reply) => {
-    return "API is running! 🚀 Bearer is " + process.env.SCRET_KEY;
+    return "API is running! 🚀 Bearer is " + process.env.SECRET_KEY;
 });
 
 server.register(chatRoutes, {prefix: '/chat'});
