@@ -4,14 +4,19 @@ FROM node:20
 # Set the working directory
 WORKDIR /usr/src/app
 
-# Create the GCP json service account file in /usr/src
-RUN echo "${GCP_APP_JSON}" > /usr/src/auth.json
-
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
 # Copy the rest of the code
 COPY . .
+
+# Create a .env file using the secret
+RUN echo "$ENV_FILE" > .env
+
+RUN cat .env
+
+# Create GCP credentials file
+RUN echo "$GCP_CREDENTIALS" > /usr/src/auth.json
 
 # Install production dependencies
 RUN npm install
