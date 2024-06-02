@@ -9,7 +9,7 @@ const routes = async (server: any, options: any) => {
             const prompt: string = request.body?.prompt?.value || '';
             //if the prompt is empty, return a bad request response
             if (!prompt) {
-                return createResponse([], CODE_RESPONSE.BAD_REQUEST, MESSAGE_RESPONSE.BAD_REQUEST)
+                return createResponse([], CODE_RESPONSE.BAD_REQUEST, MESSAGE_RESPONSE.PROMPT_EMPTY)
             }
 
             const chatbotResponse = await agentMeetingScribe(prompt);

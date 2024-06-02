@@ -12,7 +12,7 @@ const routes = async (server: any, options: any) => {
                 return createResponse([], CODE_RESPONSE.BAD_REQUEST, MESSAGE_RESPONSE.BAD_REQUEST)
             }
 
-            const chatbotResponse = await generalChat(prompt, 1024);
+            const chatbotResponse = await generalChat(prompt, -1);
 
             if (!chatbotResponse) {
                 return createResponse([], CODE_RESPONSE.INTERNAL_SERVER_ERROR, MESSAGE_RESPONSE.INTERNAL_SERVER_ERROR)

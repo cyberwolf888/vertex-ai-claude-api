@@ -20,7 +20,9 @@ export const MESSAGE_RESPONSE = {
     UNAUTHORIZED: 'Unauthorized',
     FORBIDDEN: 'Forbidden',
     NOT_FOUND: 'Not Found',
-    INTERNAL_SERVER_ERROR: 'Internal Server Error'
+    INTERNAL_SERVER_ERROR: 'Internal Server Error',
+    PROMPT_EMPTY: 'Prompt cannot be empty',
+    INVALID_TOKEN: 'Invalid Token',
 }
 
 export const createResponse = (data: any, status: number, message: string) => {

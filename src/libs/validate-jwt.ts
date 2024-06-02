@@ -8,14 +8,14 @@ const validateJwt = async (request: any, reply: any) => {
     const authorization = request.headers?.authorization || '';
     //if the authorization header is empty, return an unauthorized response
     if (!authorization) {
-        return reply.send(createResponse([], CODE_RESPONSE.UNAUTHORIZED, MESSAGE_RESPONSE.UNAUTHORIZED));
+        return reply.send(createResponse([], CODE_RESPONSE.UNAUTHORIZED, MESSAGE_RESPONSE.INVALID_TOKEN));
     }
 
     //split the authorization header by space
     const [bearer, token] = authorization.split(' ');
     //if the authorization header is not a bearer token, return an unauthorized response
     if (bearer !== 'Bearer' || !token) {
-        return reply.send(createResponse([], CODE_RESPONSE.UNAUTHORIZED, MESSAGE_RESPONSE.UNAUTHORIZED));
+        return reply.send(createResponse([], CODE_RESPONSE.UNAUTHORIZED, MESSAGE_RESPONSE.INVALID_TOKEN));
     }
 
     //validate the token
