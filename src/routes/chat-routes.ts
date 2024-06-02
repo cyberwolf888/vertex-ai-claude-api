@@ -9,10 +9,10 @@ const routes = async (server: any, options: any) => {
             const prompt: string = request.body?.prompt?.value || '';
             //if the prompt is empty, return a bad request response
             if (!prompt) {
-                return createResponse([], CODE_RESPONSE.BAD_REQUEST, MESSAGE_RESPONSE.BAD_REQUEST)
+                return createResponse([], CODE_RESPONSE.BAD_REQUEST, MESSAGE_RESPONSE.PROMPT_EMPTY)
             }
 
-            const chatbotResponse = await generalChat(prompt, -1);
+            const chatbotResponse = await generalChat(prompt, 4096);
 
             if (!chatbotResponse) {
                 return createResponse([], CODE_RESPONSE.INTERNAL_SERVER_ERROR, MESSAGE_RESPONSE.INTERNAL_SERVER_ERROR)
