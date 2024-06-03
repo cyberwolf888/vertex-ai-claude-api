@@ -5,9 +5,9 @@ dotenv.config();
 
 const projectId: string | undefined = process.env.PROJECT_ID;
 
-export const getGeneralMessage = async (prompt: string, max_token: number, model: ModelInterface) => {
+export const getGeneralMessage = async (prompt: string, max_token: number, temperature: number, system_prompt: string, model: ModelInterface) => {
     try{
-        const result = await claude(projectId, model.region).messages.create({
+        const data: any = {
             model: model.name,
             max_tokens: max_token,
             messages: [
@@ -16,7 +16,18 @@ export const getGeneralMessage = async (prompt: string, max_token: number, model
                     content: prompt,
                 },
             ],
-        });
+        }
+        if (system_prompt !== '' && system_prompt !== undefined) {
+            //add key system to data
+            data['system'] = system_prompt;
+        }
+        if (temperature !== undefined && temperature > 0 && temperature <= 1) {
+            //add key temperature to data
+            data['temperature'] = temperature;
+        }
+
+        console.log(data);
+        const result = await claude(projectId, model.region).messages.create(data);
 
         // const response = JSON.stringify(result, null, 2);
         return result ?? false;
